@@ -1,0 +1,22 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:test_sample_auth/auth/domain/entities/login.dart';
+
+part 'login_response.freezed.dart';
+
+part 'login_response.g.dart';
+
+@freezed
+class LoginResponse with _$LoginResponse {
+  const factory LoginResponse({
+    int? id,
+    String? token,
+    String? error,
+  }) = _LoginResponse;
+
+  const LoginResponse._();
+
+  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseFromJson(json);
+
+  Login toEntity() => Login(token: token);
+}
